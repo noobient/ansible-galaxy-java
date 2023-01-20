@@ -1,0 +1,19 @@
+---
+eff_flavor: "{{ flavor | default('distro') | lower }}"
+default_version: 17
+
+flavor_support:
+  distro:
+    families:
+      - debian
+      - redhat
+    versions:
+      - 8
+      - 11
+      - 17
+  microsoft:
+    families: # MS only AlmaLinux 8, so I won't even bother
+      - debian
+    versions:
+      - 11
+      - 17

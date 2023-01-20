@@ -1,0 +1,6 @@
+---
+- include_tasks: install_distro.yml
+  when: eff_flavor == 'distro'
+
+- include_tasks: install_microsoft.yml
+  when: eff_flavor == 'microsoft'

@@ -1,0 +1,12 @@
+---
+- fail:
+    msg: "Unsupported Java flavor ({{ eff_flavor }})!"
+  when: eff_flavor not in flavor_support
+
+- fail:
+    msg: "The specified Java flavor ({{ eff_flavor }}) does not support the current Linux family ({{ ansible_os_family }})!"
+  when: ansible_os_family | lower not in flavor_support[eff_flavor].families
+
+- fail:
+    msg: "The specified Java flavor ({{ eff_flavor }}) does not support the specified Java version ({{ eff_version }})!"
+  when: eff_version | string not in flavor_support[eff_flavor].versions | string

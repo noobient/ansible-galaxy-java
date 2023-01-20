@@ -1,0 +1,5 @@
+---
+# Need to permanently evaluate this here, otherwise 'version' collides with
+# thirdparty's version parameter.
+- set_fact:
+    eff_version: "{{ version | default(default_version) }}"

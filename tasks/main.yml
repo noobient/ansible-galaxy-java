@@ -1,0 +1,5 @@
+---
+- include_tasks: update.yml
+- include_tasks: version.yml
+- include_tasks: check.yml
+- include_tasks: install.yml

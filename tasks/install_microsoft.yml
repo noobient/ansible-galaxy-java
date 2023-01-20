@@ -1,0 +1,9 @@
+---
+- include_role:
+    name: bviktor.thirdparty
+  vars:
+    name: 'Microsoft Build of OpenJDK'
+    package: "msopenjdk-{{ eff_version }}"
+    gpg_url: 'https://packages.microsoft.com/keys/microsoft.asc'
+    repo_file: 'microsoft-prod'
+    version: '' # need to 'unset' it, otherwise it collides with this role's version
