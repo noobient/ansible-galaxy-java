@@ -2,7 +2,7 @@
 - include_role:
     name: bviktor.thirdparty
   vars:
-    name: 'Microsoft Build of OpenJDK'
+    name: 'Microsoft Build of OpenJDK {{ eff_version }}'
     package: "msopenjdk-{{ eff_version }}"
     gpg_url: 'https://packages.microsoft.com/keys/microsoft.asc'
     repo_file: 'microsoft-prod'
