@@ -1,0 +1,4 @@
+---
+# Check default values / idempotency
+- include_role:
+    name: "{{ playbook_dir.split('/')[:-1] | last }}"

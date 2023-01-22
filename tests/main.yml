@@ -1,33 +1,9 @@
 ---
 - hosts: 127.0.0.1
   tasks:
-    # Check all params, MS, lowercase, int casting
-    - include_role:
-        name: "{{ playbook_dir.split('/')[:-1] | last }}"
-      vars:
-        version: '11'
-        flavor: 'Microsoft'
-      when: ansible_os_family == 'Debian'
-
-    # Check Java 8 versioning braindamage
-    - include_role:
-        name: "{{ playbook_dir.split('/')[:-1] | last }}"
-      vars:
-        version: 8
-        flavor: Distro
-
-    - include_role:
-        name: "{{ playbook_dir.split('/')[:-1] | last }}"
-      vars:
-        version: '17'
-        flavor: correttO
-
-    - include_role:
-        name: "{{ playbook_dir.split('/')[:-1] | last }}"
-      vars:
-        version: 8
-        flavor: temurin
-
-    # Check default values
-    - include_role:
-        name: "{{ playbook_dir.split('/')[:-1] | last }}"
+    - include_tasks: corretto.yml
+    - include_tasks: distro.yml
+    - include_tasks: liberica.yml
+    - include_tasks: microsoft.yml
+    - include_tasks: temurin.yml
+    - include_tasks: defaults.yml

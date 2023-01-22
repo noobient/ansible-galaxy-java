@@ -5,6 +5,9 @@
 - include_tasks: install_distro.yml
   when: eff_flavor == 'distro'
 
+- include_tasks: install_liberica.yml
+  when: eff_flavor == 'liberica'
+
 - include_tasks: install_microsoft.yml
   when: eff_flavor == 'microsoft'
 

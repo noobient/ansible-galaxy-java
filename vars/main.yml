@@ -19,6 +19,14 @@ flavor_support:
       - 8
       - 11
       - 17
+  liberica:
+    families:
+      - debian
+      - redhat
+    versions:
+      - 8
+      - 11
+      - 17
   microsoft:
     families: # MS only AlmaLinux 8, so I won't even bother
       - debian

@@ -1,0 +1,9 @@
+---
+- include_role:
+    name: bviktor.thirdparty
+  vars:
+    name: 'BellSoft Liberica JDK {{ eff_version }}'
+    package: "bellsoft-java{{ eff_version }}"
+    gpg_url: 'https://download.bell-sw.com/pki/GPG-KEY-bellsoft'
+    repo_file: 'bellsoft'
+    version: '' # need to 'unset' it, otherwise it collides with this role's version

@@ -1,12 +1,16 @@
 ---
+# Same braindamage as with distro
+- set_fact:
+    eff_pkg_ver: "{% if ansible_os_family == 'RedHat' and eff_version | string == '8' %}1.8.0{% else %}{{ eff_version }}{% endif %}"
+
 # We could use Jinja to do it in one task, but this way at least I test both
 # repo_file and repo_url.
 
 - include_role:
     name: bviktor.thirdparty
   vars:
-    name: "Amazon Corretto {{ eff_version }}"
-    package: "java-{{ eff_version }}-amazon-corretto-jdk"
+    name: "Amazon Corretto {{ eff_pkg_ver }}"
+    package: "java-{{ eff_pkg_ver }}-amazon-corretto-jdk"
     gpg_url: 'https://apt.corretto.aws/corretto.key'
     repo_file: 'corretto'
     version: '' # need to 'unset' it, otherwise it collides with this role's version
@@ -15,8 +19,8 @@
 - include_role:
     name: bviktor.thirdparty
   vars:
-    name: "Amazon Corretto {{ eff_version }}"
-    package: "java-{{ eff_version }}-amazon-corretto-devel"
+    name: "Amazon Corretto {{ eff_pkg_ver }}"
+    package: "java-{{ eff_pkg_ver }}-amazon-corretto-devel"
     gpg_url: 'https://apt.corretto.aws/corretto.key'
     repo_url: 'https://yum.corretto.aws/corretto.repo'
     version: '' # need to 'unset' it, otherwise it collides with this role's version
