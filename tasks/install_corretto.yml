@@ -1,7 +1,7 @@
 ---
-# Same braindamage as with distro
+# Almost the same braindamage as with distro, but this applies to both families.
 - set_fact:
-    eff_pkg_ver: "{% if ansible_os_family == 'RedHat' and eff_version | string == '8' %}1.8.0{% else %}{{ eff_version }}{% endif %}"
+    eff_pkg_ver: "{% if eff_version | string == '8' %}1.8.0{% else %}{{ eff_version }}{% endif %}"
 
 # We could use Jinja to do it in one task, but this way at least I test both
 # repo_file and repo_url.
