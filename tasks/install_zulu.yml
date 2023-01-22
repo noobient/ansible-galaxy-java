@@ -1,0 +1,9 @@
+---
+- include_role:
+    name: bviktor.thirdparty
+  vars:
+    name: 'Azul Zulu {{ eff_version }}'
+    package: "zulu{{ eff_version }}-jdk"
+    gpg_url: 'https://repos.azul.com/azul-repo.key'
+    repo_file: 'zulu'
+    version: '' # need to 'unset' it, otherwise it collides with this role's version

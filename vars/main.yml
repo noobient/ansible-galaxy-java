@@ -28,12 +28,20 @@ flavor_support:
       - 11
       - 17
   microsoft:
-    families: # MS only AlmaLinux 8, so I won't even bother
+    families: # No EL9, no Fedora, so I won't even bother
       - debian
     versions:
       - 11
       - 17
   temurin:
+    families:
+      - debian
+      - redhat
+    versions:
+      - 8
+      - 11
+      - 17
+  zulu:
     families:
       - debian
       - redhat
