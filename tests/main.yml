@@ -5,11 +5,13 @@
     - include_vars:
         file: ../vars/main.yml
 
-    - include_tasks: corretto.yml
-    - include_tasks: distro.yml
-    - include_tasks: liberica.yml
-    - include_tasks: microsoft.yml
-    - include_tasks: temurin.yml
+    # Use keys() to get top level list, otherwise it wants to use the full dict
+    # and errors out.
+    # https://www.redhat.com/sysadmin/ansible-lists-dictionaries-yaml
+    - include_tasks: flavors.yml
+      loop: "{{ flavor_support.keys() }}"
+      loop_control:
+        loop_var: flavor_item
 
     - include_tasks: format.yml
     - include_tasks: defaults.yml
