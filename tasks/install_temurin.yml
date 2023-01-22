@@ -1,0 +1,9 @@
+---
+- include_role:
+    name: bviktor.thirdparty
+  vars:
+    name: 'Eclipse Temurin {{ eff_version }}'
+    package: "temurin-{{ eff_version }}-jdk"
+    gpg_url: 'https://packages.adoptium.net/artifactory/api/gpg/key/public'
+    repo_file: 'adoptium'
+    version: '' # need to 'unset' it, otherwise it collides with this role's version

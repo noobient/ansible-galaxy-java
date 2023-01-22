@@ -9,7 +9,7 @@ This role lets you install various flavors and versions of Java.
 | Name | Required | Example | Description |
 |---|---|---|---|
 | `version` | no | `17` | Java major version to install. Supported values are `8`, `11`, `17`. Defaults to `17`. |
-| `flavor` | no | `distro` | Java distribution to install. Supported values are `distro`, `microsoft`. Defaults to `distro`. |
+| `flavor` | no | `distro` | Java distribution to install. Supported values are `corretto`, `distro`, `microsoft`, `temurin`. Defaults to `distro`. |
 
 For a complete list of supported Java versions, please refer to `flavor_support` in `vars/main.yml`.
 

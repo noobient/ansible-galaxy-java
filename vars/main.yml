@@ -25,3 +25,11 @@ flavor_support:
     versions:
       - 11
       - 17
+  temurin:
+    families:
+      - debian
+      - redhat
+    versions:
+      - 8
+      - 11
+      - 17

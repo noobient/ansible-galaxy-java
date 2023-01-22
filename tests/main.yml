@@ -22,6 +22,12 @@
         version: '17'
         flavor: correttO
 
+    - include_role:
+        name: "{{ playbook_dir.split('/')[:-1] | last }}"
+      vars:
+        version: 8
+        flavor: temurin
+
     # Check default values
     - include_role:
         name: "{{ playbook_dir.split('/')[:-1] | last }}"
