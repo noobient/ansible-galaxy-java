@@ -3,8 +3,6 @@
     name: "{{ playbook_dir.split('/')[:-1] | last }}"
   vars:
     version: "{{ item }}"
-    flavor: Distro
-  loop:
-    - 8
-    - 11
-    - 17
+    flavor: distro
+  loop: "{{ flavor_support[eff_flavor].versions }}"
+  when: ansible_os_family | lower in flavor_support[eff_flavor].families

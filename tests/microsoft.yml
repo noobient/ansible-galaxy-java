@@ -4,7 +4,5 @@
   vars:
     version: "{{ item }}"
     flavor: microsoft
-  loop:
-    - 11
-    - 17
-  when: ansible_os_family == 'Debian'
+  loop: "{{ flavor_support[eff_flavor].versions }}"
+  when: ansible_os_family | lower in flavor_support[eff_flavor].families
