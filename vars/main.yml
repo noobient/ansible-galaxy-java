@@ -3,6 +3,14 @@ eff_flavor: "{{ flavor | default('distro') | lower }}"
 default_version: 17
 
 flavor_support:
+  corretto:
+    families:
+      - debian
+      - redhat
+    versions:
+      - 8
+      - 11
+      - 17
   distro:
     families:
       - debian

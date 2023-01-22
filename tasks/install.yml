@@ -1,4 +1,7 @@
 ---
+- include_tasks: install_corretto.yml
+  when: eff_flavor == 'corretto'
+
 - include_tasks: install_distro.yml
   when: eff_flavor == 'distro'
 

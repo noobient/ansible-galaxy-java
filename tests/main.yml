@@ -16,6 +16,12 @@
         version: 8
         flavor: Distro
 
+    - include_role:
+        name: "{{ playbook_dir.split('/')[:-1] | last }}"
+      vars:
+        version: '17'
+        flavor: correttO
+
     # Check default values
     - include_role:
         name: "{{ playbook_dir.split('/')[:-1] | last }}"
