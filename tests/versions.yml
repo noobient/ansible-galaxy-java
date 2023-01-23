@@ -1,0 +1,24 @@
+---
+- include_role:
+    name: "{{ playbook_dir.split('/')[:-1] | last }}"
+  vars:
+    version: "{{ version_item }}"
+    flavor: "{{ flavor_item }}"
+
+# 'java' is more informative, 'javac' proves we have JDK, not just JRE.
+- name: Check Java in JAVA_HOME
+  command:
+    cmd: "{{ java.java_home }}/bin/{{ item }} -version"
+  changed_when: false
+  loop:
+    - java
+    - javac
+  register: java_version_cmd
+
+# For whatever braindamaged reason, 'javac -version' *sometimes* prints to
+# stderr, other times to stdout...
+- debug:
+    msg: "{% if item.stdout | length %}{{ item.stdout_lines }}{% else %}{{ item.stderr_lines }}{% endif %}"
+  loop: "{{ java_version_cmd.results }}"
+  loop_control:
+    label: "{{ item.item }}"

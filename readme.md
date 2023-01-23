@@ -28,7 +28,9 @@ For a complete list of supported Java versions, please refer to `flavor_support`
 
 ## Return Values
 
-N/A
+| Key | Type | Example | Description |
+|---|---|---|---|
+| `java.java_home` | string | `/usr/lib/jvm/bellsoft-java8-amd64` | `JAVA_HOME` of the Java release installed by this role. |
 
 ## Support
 

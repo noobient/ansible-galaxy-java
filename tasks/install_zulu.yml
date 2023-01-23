@@ -7,3 +7,7 @@
     gpg_url: 'https://repos.azul.com/azul-repo.key'
     repo_file: 'zulu'
     version: '' # need to 'unset' it, otherwise it collides with this role's version
+
+- set_fact:
+    java:
+      java_home: "/usr/lib/jvm/zulu{{ eff_version }}"

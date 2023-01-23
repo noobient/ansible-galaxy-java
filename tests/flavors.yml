@@ -1,8 +1,6 @@
 ---
-- include_role:
-    name: "{{ playbook_dir.split('/')[:-1] | last }}"
-  vars:
-    version: "{{ item }}"
-    flavor: "{{ flavor_item }}"
-  loop: "{{ flavor_support[eff_flavor].versions }}"
-  when: ansible_os_family | lower in flavor_support[eff_flavor].families
+- include_tasks: versions.yml
+  loop: "{{ flavor_support[flavor_item].versions }}"
+  loop_control:
+    loop_var: version_item
+  when: ansible_os_family | lower in flavor_support[flavor_item].families

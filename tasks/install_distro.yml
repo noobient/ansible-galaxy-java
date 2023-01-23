@@ -27,3 +27,7 @@
     state: latest
     install_weak_deps: false
   when: ansible_os_family == 'RedHat'
+
+- set_fact:
+    java:
+      java_home: "/usr/lib/jvm/java-{{ eff_pkg_ver }}-openjdk{% if ansible_os_family == 'Debian' %}-{{ dpkg_arch.stdout_lines[0] }}{% endif %}"

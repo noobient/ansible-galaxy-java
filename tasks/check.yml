@@ -10,3 +10,10 @@
 - fail:
     msg: "The specified Java flavor ({{ eff_flavor }}) does not support the specified Java version ({{ eff_version }})!"
   when: eff_version | string not in flavor_support[eff_flavor].versions | string
+
+- name: Check package manager architecture
+  command:
+    cmd: dpkg --print-architecture
+  changed_when: false
+  register: dpkg_arch
+  when: ansible_os_family == 'Debian'

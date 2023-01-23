@@ -25,3 +25,7 @@
     repo_url: 'https://yum.corretto.aws/corretto.repo'
     version: '' # need to 'unset' it, otherwise it collides with this role's version
   when: ansible_os_family == 'RedHat'
+
+- set_fact:
+    java:
+      java_home: "/usr/lib/jvm/java-{{ eff_pkg_ver }}-amazon-corretto"

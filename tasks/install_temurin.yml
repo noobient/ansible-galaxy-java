@@ -7,3 +7,7 @@
     gpg_url: 'https://packages.adoptium.net/artifactory/api/gpg/key/public'
     repo_file: 'adoptium'
     version: '' # need to 'unset' it, otherwise it collides with this role's version
+
+- set_fact:
+    java:
+      java_home: "/usr/lib/jvm/temurin-{{ eff_version }}-jdk{% if ansible_os_family == 'Debian' %}-{{ dpkg_arch.stdout_lines[0] }}{% endif %}"
