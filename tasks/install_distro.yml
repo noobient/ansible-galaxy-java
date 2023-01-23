@@ -15,6 +15,15 @@
     eff_pkg_ver: "{% if ansible_os_family == 'RedHat' and eff_version | string == '8' %}1.8.0{% else %}{{ eff_version }}{% endif %}"
 
 - name: "Install distro Java {{ eff_pkg_ver }}"
-  package:
-    name: "{% if ansible_os_family == 'RedHat' %}java-{{ eff_pkg_ver }}-openjdk-headless{% else %}openjdk-{{ eff_pkg_ver }}-jre-headless{% endif %}"
+  apt:
+    name: "openjdk-{{ eff_pkg_ver }}-jdk-headless"
     state: latest
+    install_recommends: false
+  when: ansible_os_family == 'Debian'
+
+- name: "Install distro Java {{ eff_pkg_ver }}"
+  dnf:
+    name: "java-{{ eff_pkg_ver }}-openjdk-devel"
+    state: latest
+    install_weak_deps: false
+  when: ansible_os_family == 'RedHat'
