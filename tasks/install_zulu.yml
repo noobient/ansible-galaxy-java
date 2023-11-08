@@ -1,6 +1,6 @@
 ---
 - include_role:
-    name: bviktor.thirdparty
+    name: noobient.thirdparty
   vars:
     name: 'Azul Zulu {{ eff_version }}'
     package: "zulu{{ eff_version }}-jdk"

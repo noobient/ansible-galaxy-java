@@ -1,6 +1,6 @@
 ---
 - include_role:
-    name: bviktor.thirdparty
+    name: noobient.thirdparty
   vars:
     name: 'Microsoft Build of OpenJDK {{ eff_version }}'
     package: "msopenjdk-{{ eff_version }}"

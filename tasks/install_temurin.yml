@@ -1,6 +1,6 @@
 ---
 - include_role:
-    name: bviktor.thirdparty
+    name: noobient.thirdparty
   vars:
     name: 'Eclipse Temurin {{ eff_version }}'
     package: "temurin-{{ eff_version }}-jdk"

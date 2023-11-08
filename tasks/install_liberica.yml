@@ -1,6 +1,6 @@
 ---
 - include_role:
-    name: bviktor.thirdparty
+    name: noobient.thirdparty
   vars:
     name: 'BellSoft Liberica JDK {{ eff_version }}'
     package: "bellsoft-java{{ eff_version }}"

@@ -17,10 +17,10 @@ For a complete list of supported Java versions, please refer to `flavor_support`
 
 ```yml
 - include_role:
-    name: bviktor.java
+    name: noobient.java
 
 - include_role:
-    name: bviktor.java
+    name: noobient.java
   vars:
     version: 11
     flavor: microsoft

@@ -7,7 +7,7 @@
 # repo_file and repo_url.
 
 - include_role:
-    name: bviktor.thirdparty
+    name: noobient.thirdparty
   vars:
     name: "Amazon Corretto {{ eff_pkg_ver }}"
     package: "java-{{ eff_pkg_ver }}-amazon-corretto-jdk"
@@ -17,7 +17,7 @@
   when: ansible_os_family == 'Debian'
 
 - include_role:
-    name: bviktor.thirdparty
+    name: noobient.thirdparty
   vars:
     name: "Amazon Corretto {{ eff_pkg_ver }}"
     package: "java-{{ eff_pkg_ver }}-amazon-corretto-devel"
