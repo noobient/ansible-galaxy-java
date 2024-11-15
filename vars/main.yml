@@ -1,6 +1,6 @@
 ---
 eff_flavor: "{{ flavor | default('distro') | lower }}"
-default_version: 17
+default_version: 21
 
 flavor_support:
   corretto:
@@ -11,6 +11,7 @@ flavor_support:
       - 8
       - 11
       - 17
+      - 21
   distro:
     families:
       - debian
@@ -19,6 +20,7 @@ flavor_support:
       - 8
       - 11
       - 17
+      - 21
   liberica:
     families:
       - debian
@@ -27,12 +29,14 @@ flavor_support:
       - 8
       - 11
       - 17
+      - 21
   microsoft:
     families: # No EL9, no Fedora, so I won't even bother
       - debian
     versions:
       - 11
       - 17
+      - 21
   temurin:
     families:
       - debian
@@ -41,6 +45,7 @@ flavor_support:
       - 8
       - 11
       - 17
+      - 21
   zulu:
     families:
       - debian
@@ -49,3 +54,4 @@ flavor_support:
       - 8
       - 11
       - 17
+      - 21
