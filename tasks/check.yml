@@ -4,8 +4,8 @@
   when: eff_flavor not in flavor_support
 
 - fail:
-    msg: "The specified Java flavor ({{ eff_flavor }}) does not support the current Linux family ({{ ansible_os_family }})!"
-  when: ansible_os_family | lower not in flavor_support[eff_flavor].families
+    msg: "The specified Java flavor ({{ eff_flavor }}) does not support the current Linux family ({{ ansible_facts['os_family'] }})!"
+  when: ansible_facts['os_family'] | lower not in flavor_support[eff_flavor].families
 
 - fail:
     msg: "The specified Java flavor ({{ eff_flavor }}) does not support the specified Java version ({{ eff_version }})!"
@@ -16,4 +16,4 @@
     cmd: dpkg --print-architecture
   changed_when: false
   register: dpkg_arch
-  when: ansible_os_family == 'Debian'
+  when: ansible_facts['os_family'] == 'Debian'

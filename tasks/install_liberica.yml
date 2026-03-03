@@ -10,4 +10,4 @@
 
 - set_fact:
     java:
-      java_home: "/usr/lib/jvm/bellsoft-java{{ eff_version }}{% if ansible_os_family == 'RedHat' %}.{{ ansible_architecture }}{% else %}-{{ dpkg_arch.stdout_lines[0] }}{% endif %}"
+      java_home: "/usr/lib/jvm/bellsoft-java{{ eff_version }}{% if ansible_facts['os_family'] == 'RedHat' %}.{{ ansible_facts['architecture'] }}{% else %}-{{ dpkg_arch.stdout_lines[0] }}{% endif %}"

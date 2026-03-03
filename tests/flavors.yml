@@ -3,4 +3,4 @@
   loop: "{{ flavor_support[flavor_item].versions }}"
   loop_control:
     loop_var: version_item
-  when: ansible_os_family | lower in flavor_support[flavor_item].families
+  when: ansible_facts['os_family'] | lower in flavor_support[flavor_item].families

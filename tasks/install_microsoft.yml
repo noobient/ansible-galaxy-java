@@ -11,4 +11,4 @@
 # TODO We'll almost certainly have to update this if MS becomes available on EL.
 - set_fact:
     java:
-      java_home: "/usr/lib/jvm/msopenjdk-{{ eff_version }}{% if ansible_os_family == 'Debian' %}-{{ dpkg_arch.stdout_lines[0] }}{% endif %}"
+      java_home: "/usr/lib/jvm/msopenjdk-{{ eff_version }}{% if ansible_facts['os_family'] == 'Debian' %}-{{ dpkg_arch.stdout_lines[0] }}{% endif %}"
